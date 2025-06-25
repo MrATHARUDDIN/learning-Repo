@@ -41,8 +41,10 @@ def Mail_box():
 walk_dog() 
 trash_out()
 Mail_box()
-
+# Total time = 5 + 2 + 3 = 10 seconds
 print("Now this")
+
+
 # with threads
 work1 = threading.Thread(target=walk_dog)
 work1.start()
@@ -52,3 +54,16 @@ work2.start()
 
 work3 = threading.Thread(target=Mail_box)
 work3.start()
+# These will run in parallel, so total time ≈ longest task (5 seconds)
+
+
+work1.join()
+work2.join()
+work3.join()
+# Wait for all threads to complete before moving on
+# `.join()` blocks the main program until the thread finishes
+
+
+
+
+print("done")
