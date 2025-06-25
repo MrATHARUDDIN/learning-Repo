@@ -14,3 +14,41 @@
 # ✅ Responsive user interfaces (UI doesn't freeze).
 
 # ✅ Faster execution for tasks like downloading files, real-time games, etc.
+
+
+
+
+
+# we gonna use it for featching apis
+
+import threading
+import time
+
+def walk_dog():
+    time.sleep(5)
+    print("Walking out the dog ")
+
+def trash_out():
+    time.sleep(2)
+    print("Throwing Out the trash done")
+
+def Mail_box():
+    time.sleep(3)
+    print("Mail check done")
+
+
+# normaly
+walk_dog() 
+trash_out()
+Mail_box()
+
+print("Now this")
+# with threads
+work1 = threading.Thread(target=walk_dog)
+work1.start()
+
+work2 = threading.Thread(target=trash_out)
+work2.start()
+
+work3 = threading.Thread(target=Mail_box)
+work3.start()
