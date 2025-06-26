@@ -11,7 +11,7 @@ response = requests.get(url)
 # print(response) it will print response [200] Means working
 print(response.json()) # now you can see the json data
 
-
+print("")
 
 #---------------------------------------  Post method ------------------------------- #
 
@@ -19,7 +19,12 @@ url2 = "https://jsonplaceholder.typicode.com/posts"
 
 # Data to be sent
 data = {
-    "userID": 1,
+    "userID": 100,
     "title": "Making a POST request",
     "body": "This is the data we created."
 }
+
+# A POST request to the API
+Post_req = requests.post(url2, json=data)
+# Print the response
+print(Post_req.json())
