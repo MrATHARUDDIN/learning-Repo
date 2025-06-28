@@ -11,7 +11,18 @@ from PyQt5.QtWidgets import QApplication , QMainWindow
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
+        self.setWindowTitle("First Py Window")
 
 
 def main():
-    pass
+    app = QApplication(sys.argv)
+    window = MainWindow()
+    window.show()
+    sys.exit(app.exec_())
+
+
+#   sys.exit(app.exec_()) --> Starts the event loop (keeps the app running).
+#           The app stays open until you close the window.
+#           sys.exit() ensures a clean and safe exit when the app closes.
+
+main()
