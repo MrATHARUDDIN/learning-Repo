@@ -1,14 +1,16 @@
 # Gui means - Graphical User Interface
-import sys
-# sys --> System-level functions (like exiting the app)
+import sys  # sys --> System-level functions (like exiting the app)
 
-from PyQt5.QtWidgets import QApplication , QMainWindow , QLabel
+
+# Import necessary PyQt5 modules
+from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel  # For app, main window, and text label
+from PyQt5.QtGui import QIcon, QFont  # For setting window icon and font
+from PyQt5.QtCore import Qt  # For alignment constants like AlignCenter
+
 # QApplication ---> Initializes the app and run the event loop
 
 # QMainWindow ---> Is a Main application window class 
 # It provides a framework with predefined areas like : menu bar, toolbars, status bar etc 
-
-from PyQt5.QtGui import QIcon
 
 
 
@@ -18,10 +20,24 @@ class MainWindow(QMainWindow):
         self.setWindowTitle("First Py Window") # tile tag
 
         # self.setGeometry(x,y,width,height)
-        self.setGeometry(500,400,500,500) # where the table will append and width and hight of the tab
+        self.setGeometry(500,400,600,600) # where the table will append and width and hight of the tab
+        
+        
         lable = QLabel("Hello World",self) # text lable
+        lable.setFont(QFont("Arial", 40))
+        lable.setGeometry(10,10,500,100)
+
+       # Set style: text color and background color using CSS-like syntax
+        lable.setStyleSheet(
+            "color: lightblue;"           # Text color
+            "background-color: green;"    # Background color
+        )
+
+       # lable.setAlignment(Qt.AlignTop)    # verticaly top
+       # lable.setAlignment(Qt.AlignBottom)  # vertically bottom
+        lable.setAlignment(Qt.AlignCenter)   # vertically center
         
-        
+    # FavIcon     
         icon = QIcon("pic.jpg")
         self.setWindowIcon(icon)
 
