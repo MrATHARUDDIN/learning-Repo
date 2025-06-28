@@ -20,8 +20,11 @@ class MainWindow(QMainWindow):
         # self.setGeometry(x,y,width,height)
         self.setGeometry(500,400,500,500) # where the table will append and width and hight of the tab
         QLabel("Hello World",self) # text lable
+        
+        
+        icon = QIcon("pic.jpg")
+        self.setWindowIcon(icon)
 
-        self.setWindowIcon(QIcon("pic.jpeg"))
 
 
 def main():
