@@ -1,43 +1,44 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel,QPushButton
-from PyQt5.QtGui import QFont, QPixmap 
+from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel, QPushButton
+from PyQt5.QtGui import QFont, QPixmap
 from PyQt5.QtCore import Qt
 
-# QPixmap --> For the picture
-
+Text = "Hello again!"
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("Calculator")
         self.setGeometry(100, 100, 500, 500)
 
-        label = QLabel("hello", self)
-        label.setFont(QFont("Arial", 20))
-        label.setGeometry(10, 10, 200, 100)
-        label.setStyleSheet(
+        # Text label
+        self.label = QLabel("hello", self)
+        self.label.setFont(QFont("Arial", 20))
+        self.label.setGeometry(10, 10, 270, 100)
+        self.label.setStyleSheet(
             "color: #292929;"
             "background-color: #6fdcf7;"
             "font-weight: bold;"
             "font-style: italic;"
         )
+        self.label.setAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
 
-        label.setAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+        # Image label
+        label2 = QLabel(self)
+        label2.setGeometry(10, 300, 100, 100)
+        pixmap = QPixmap("icon.ico")
+        label2.setPixmap(pixmap)
+        label2.setScaledContents(True)
 
+        # Button
+        btn = QPushButton("Check Out Girls", self)
+        btn.setCheckable(True)
+        btn.setGeometry(50, 150, 150, 40)
+        btn.clicked.connect(self.after_click)
 
-        label2 =  QLabel(self)
-        label.setGeometry(0,0,500,100)
-
-        btn = QPushButton("Check Out Girls",self) # QPushButton is the module of defining a btn
-        btn.setCheckable(True) # set that as a clickable btn
-        btn.setGeometry(50,150,90,30) # position of the btn
-        btn.clicked.connect(self.after_click) # after click call the function
-
-    
-    
-    # after click funtion    
     def after_click(self):
+        global Text
+        self.label.setText(Text)
         print("Btn has been clicked")
-
 
 def main():
     app = QApplication(sys.argv)
