@@ -10,12 +10,15 @@ class Mainwindow(QMainWindow):
     
     
     def initUI(self):
-        button =QPushButton("Click me!",self)
-        button.setGeometry(150,200,200,100)
-        button.setStyleSheet("font-size: 18px")
+        self.button =QPushButton("Click me!",self)
+        self.button.setGeometry(150,200,200,100)
+        self.button.setStyleSheet("font-size: 18px")
+        self.button.clicked.connect(self.onclick)
     
     def onclick(self):
         print("btn clicked")
+        self.button.setText("Clicked")
+        self.button.setDisabled(True)
 
 def main():
     app = QApplication(sys.argv)
