@@ -28,6 +28,12 @@ class MainWindow(QMainWindow):
         url = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/PyQt_logo.svg/320px-PyQt_logo.svg.png"
         label2 = QLabel(self)
         label2.setGeometry(10, 300, 250, 250)
+
+        # to put the img in center
+        label2.setGeometry(self.width()- label2.width() // 2,
+                           self.height() - label2.height() // 2,
+                           )
+
         try:
             response = requests.get(url)
             image = QImage.fromData(response.content)
