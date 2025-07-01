@@ -24,10 +24,15 @@ class MainWindow(QMainWindow):
 
         # Image label
         label2 = QLabel(self)
-        label2.setGeometry(10, 300, 100, 100)
-        pixmap = QPixmap("icon.ico")
-        label2.setPixmap(pixmap)
-        label2.setScaledContents(True)
+        label2.setGeometry(10, 300, 250, 250)
+        pixmap = QPixmap("bbq.jpg")
+        #condition that will print us the img is loaded or not
+        if pixmap.isNull():
+            label2.setText("Image not found!")
+        else:
+            label2.setPixmap(pixmap)
+            label2.setScaledContents(True)
+
 
         # Button
         btn = QPushButton("Check Out Girls", self)
