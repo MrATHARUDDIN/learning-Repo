@@ -1,7 +1,9 @@
 import sys
+import requests
 from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel, QPushButton
 from PyQt5.QtGui import QFont, QPixmap
 from PyQt5.QtCore import Qt
+from PyQt5.QtGui import QImage
 
 Text = "Hello again!"
 class MainWindow(QMainWindow):
@@ -23,15 +25,21 @@ class MainWindow(QMainWindow):
         self.label.setAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
 
         # Image label
+        url = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/PyQt_logo.svg/320px-PyQt_logo.svg.png"
         label2 = QLabel(self)
         label2.setGeometry(10, 300, 250, 250)
-        pixmap = QPixmap("bbq.jpg")
-        #condition that will print us the img is loaded or not
-        if pixmap.isNull():
-            label2.setText("Image not found!")
-        else:
-            label2.setPixmap(pixmap)
-            label2.setScaledContents(True)
+        try:
+            response = requests.get(url)
+            image = QImage.fromData(response.content)
+            pixmap = QPixmap.fromImage(image)
+
+            if pixmap.isNull():
+                label2.setText("Failed to load image!")
+            else:
+                label2.setPixmap(pixmap)
+                label2.setScaledContents(True)
+        except:
+            label2.setText("Network error!")
 
 
         # Button
