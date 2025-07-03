@@ -36,3 +36,14 @@ b = np.array([
 
 print("Data type is", b.dtype)     # int64
 print(b[1,0].dtype)                # int64 (for array 'b')
+
+
+# maxing and experiments with data type
+d = {"1":"A"}
+
+a = np.array([[1,2,3],[4,d,6],[1,"hello",5]])
+print(a.dtype)
+print(type(a[1,0]))
+
+b = np.array([[1,2,3],[1,5,6],[7,8,9]],dtype="<U2")
+print(b.dtype)
