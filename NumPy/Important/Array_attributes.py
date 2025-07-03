@@ -24,3 +24,15 @@ a = np.array ([[1,3,4],
 print(a.dtype) # it will be string cuz in numpy if a single value is string all the array became string
 print(type(a[0,1]))
 print(a[0,1].dtype)
+
+print()
+
+# Type casting: all elements converted to int64 (string "5" becomes int 5)
+b = np.array([
+    [1, 3, 4],
+    ["5", 4, 6],
+    [7, 8, 9]
+], dtype=np.int64)
+
+print("Data type is", b.dtype)     # int64
+print(b[1,0].dtype)                # int64 (for array 'b')
