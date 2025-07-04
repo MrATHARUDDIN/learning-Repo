@@ -18,3 +18,9 @@ print(c) # np.empty creates an array without filling it with zeros or ones
 x_values = np.arange(0, 100, 2)  # np.arange(start, stop, step)
 print(x_values)
 # Output: [ 0  2  4  6 ... 96 98]
+
+
+# Generate 6 evenly spaced values between 0 and 100 (inclusive)
+x_values = np.linspace(0, 100, 6)  # np.linspace(start, stop, number_of_points)
+print(x_values)
+# Output: [  0.  20.  40.  60.  80. 100.]
