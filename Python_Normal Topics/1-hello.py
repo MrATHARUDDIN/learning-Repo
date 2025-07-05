@@ -39,7 +39,7 @@ gpa = 3.2
 
 print(gpa)
 gpa = int(gpa)  # Converts float to int (loses decimal)
-print(gpa)
+print(f"after type casting : {gpa}")
 
 age = float(age)  # Converts int to float
 age = age / 3
