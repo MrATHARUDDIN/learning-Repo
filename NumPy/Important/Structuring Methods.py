@@ -38,3 +38,7 @@ b = np.array([
               ])
 print(b.swapaxes(0,1)) # row is now collomn and col is row
 
+
+b = np.array([[1,2,3],[5,6,7]])
+print(b.T) # same work as Swapaxes
+
