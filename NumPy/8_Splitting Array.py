@@ -32,7 +32,7 @@ print(newa[2])
 
 # Split 2D array along columns (axis=1)
 newb = np.array_split(a, 3, axis=1)  
-# This splits the array into 3 sub-arrays along columns (each will have fewer columns)
+# This splits the array into 3 sub-arrays on the columns (each will have fewer columns)
 
 print(newb)
 
@@ -40,3 +40,8 @@ print(newb)
 print("Shapes of arrays in newb:")
 for i, arr in enumerate(newb):
     print(f"Shape of newb[{i}]:", np.shape(arr))
+
+# hsplit means with axis 1 (create pairs in column)
+arr = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12], [13, 14, 15], [16, 17, 18]])
+newarr = np.hsplit(arr, 3)
+print(newarr)
