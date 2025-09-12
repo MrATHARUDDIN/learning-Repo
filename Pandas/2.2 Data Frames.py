@@ -26,7 +26,6 @@ print(df)
 df.drop("City",axis=1,inplace=True)
 print(df)
 
-# DataFrame.ndim 
 # it will show us the dimantion of the dataframe (array)
 print(df.ndim)
 
@@ -46,7 +45,6 @@ print("################################  Sorting Data  #########################
 dff = dff.sort_values("age", ascending=False) # biger to small
 dff = dff.sort_values("age") # small to big
 
-print(dff)
 
 
 print("################################  Group Data  ################################################################")
@@ -57,8 +55,8 @@ student = pd.DataFrame({
 })
 
 grouped = student.groupby("job")["age"].mean() # Group by 'job' and calculate average age per job
-print(grouped)
 
-for jobs,group in student.groupby("job"):
-    print(f"work in {jobs}")
-    print(group)
+
+for jobs,group in student.groupby("job"): # "Major" , "Student" in studnt.group
+    print(f"work in {jobs}") # In Major we have lot of >>>> Student  
+    print(group) # print the Student under <<<< Eatch Major

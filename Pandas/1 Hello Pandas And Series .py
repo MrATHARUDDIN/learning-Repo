@@ -23,15 +23,15 @@ print(myseries) # it will also print the data type
 
 
 
-
-# Create Labels
 # with the "index" argument we can name our own lables
-
 b = [1,7,2]
 myvar = pd.Series(b,index=["x","y","z"])
 print(myvar) 
 # print(myvar[0]) # give us error
- 
+
+
+
+
 print(myvar["y"]) # we can access the value with our own index name
 # note :- the index size of the matrix/array need to be same as number of the index it gonna declear
 
